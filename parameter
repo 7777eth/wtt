@@ -1,0 +1,46 @@
+GetParameterDemo.java
+package skillplusplus;
+ 
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+ 
+@WebServlet("/GetParameterDemo")
+public class GetParameterDemo extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+            throws ServletException, IOException {
+        // TODO Auto-generated method stub
+        response.getWriter().println("Name: "+request.getParameter("uname"));
+        response.getWriter().println("Password: "+request.getParameter("upass"));
+    }
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+            throws ServletException, IOException {
+        // TODO Auto-generated method stub
+        doGet(request, response);
+    }
+}
+
+
+
+html
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Login Form</title>
+</head>
+<body>
+<form action="GetParameterDemo" method="post">
+<h2>Login Form</h2>
+Username:<br><input type="text" name="uname"><br>
+Password:<br><input type="password" name="upass"><br>
+<br><input type="submit" value="Login"><br>
+</form>
+</body>
+</html>
+
